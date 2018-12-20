@@ -50,10 +50,13 @@ namespace itg
         }
         else
         {
-            s.width = ofNextPow2(width);
-            s.height = ofNextPow2(height);
+            //s.width = ofNextPow2(width);
+            //s.height = ofNextPow2(height);
+            s.width = width;
+            s.height = height;
             s.textureTarget = GL_TEXTURE_2D;
         }
+        
         
         // no need to use depth for ping pongs
         for (int i = 0; i < 2; ++i)
@@ -68,12 +71,13 @@ namespace itg
         
         numProcessedPasses = 0;
         currentReadFbo = 0;
-        flip = true;
+        flip = false;
+        
     }
     
     void PostProcessing::begin()
     {
-        raw.begin(ofFboBeginMode::NoDefaults);
+        raw.begin();
         
         ofMatrixMode(OF_MATRIX_PROJECTION);
         ofPushMatrix();
@@ -95,7 +99,7 @@ namespace itg
         cam.begin();
         cam.end();
         
-        raw.begin(ofFboBeginMode::NoDefaults);
+        raw.begin();
         
         ofMatrixMode(OF_MATRIX_PROJECTION);
         ofPushMatrix();
@@ -133,7 +137,7 @@ namespace itg
         glDisable(GL_LIGHTING);
         ofSetColor(255, 255, 255);
         process();
-        if (autoDraw) draw();
+        if (autoDraw) draw(0,0);
         glPopAttrib();
         ofPopStyle();
     }

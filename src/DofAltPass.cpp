@@ -31,12 +31,13 @@
  */
 #include "DofAltPass.h"
 
+
 namespace itg
 {
     DofAltPass::DofAltPass(const ofVec2f& aspect, bool arb, float focalDepth, float focalLength, float fStop, bool showFocus) :
         focalDepth(focalDepth), focalLength(focalLength), fStop(fStop), showFocus(showFocus), RenderPass(aspect, arb, "dofalt")
     {
-        string fragShaderSrc = STRINGIFY(
+        std::string fragShaderSrc = STRINGIFY(
             /*
              DoF with bokeh GLSL shader v2.4
              by Martins Upitis (martinsh) (devlog-martinsh.blogspot.com)

@@ -37,6 +37,7 @@
 #include "DofAltPass.h"
 #include "EdgePass.h"
 #include "FxaaPass.h"
+#include "HsbShiftPass.h"
 #include "KaleidoscopePass.h"
 #include "NoiseWarpPass.h"
 #include "PixelatePass.h"

@@ -42,6 +42,10 @@
 
 #define STRINGIFY(A) #A
 
+using namespace std;
+#include "ofMain.h"
+
+
 namespace itg
 {
     class RenderPass
@@ -52,7 +56,7 @@ namespace itg
     public:
         typedef shared_ptr<RenderPass> Ptr;
         
-        RenderPass(const ofVec2f& aspect, bool arb, const string& name);
+        RenderPass(const ofVec2f& aspect, bool arb, const std::string& name);
         
         virtual void render(ofFbo& readFbo, ofFbo& writeFbo, ofTexture& depth);
         virtual void render(ofFbo& readFbo, ofFbo& writeFbo) {}
@@ -85,7 +89,7 @@ namespace itg
     
     private:
 #ifndef _ITG_TWEAKABLE
-        string name;
+        std::string name;
 #endif
         bool enabled;
     };
